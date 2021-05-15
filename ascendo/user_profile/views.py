@@ -2,7 +2,7 @@ from django.contrib.auth import logout as log_me_out
 from django.shortcuts import render, redirect
 from django.utils.timezone import now
 from django.views import View
-
+from django.db.models import Q
 from ascendo.rules.models import Rules
 from .forms import ProfileForm
 from .models import Profile
@@ -41,7 +41,7 @@ profile_view = ProfileView.as_view()
 
 class LeaderView(View):
     def get(self, request):
-        context = {'profiles': Profile.objects.all()}
+        context = {'profiles': Profile.objects.filter(Q(code=True) | Q(language=True))}
         if request.user.is_authenticated:
             try:
                 profile = request.user.profile

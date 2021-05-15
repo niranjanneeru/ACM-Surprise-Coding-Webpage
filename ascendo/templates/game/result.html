@@ -1,8 +1,75 @@
-{{ message }}
+{%load static%}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Treasure Hunt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="one" class="fade-in">
+				<ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
+				<!-- Intro -->
+					<div id="intro">
+                        
+                        {%if code%}
+						<h1 style="color: rgb(197, 5, 255);text-shadow: 5px;">Congrats!!</h1>
+                        <p>Congratulations you can move on to the next question</p>
+                        <a href="{%url 'game:question'%}" class="button icon solid  fas fa-play scrolly">next</a>
+						<script>
+							document.body.style.background = "url('{%static 'images/happy.jpg'%}')";
+							
+						</script>
+                        {%else %}
+						<h1 style="color: red;">OPPS!!</h1>
+                        <p>Sorry try again later</p>
+                        <a href="{%url 'game:question'%}" class="btn1 icon solid  fas fa-play scrolly">Try again</a>
+						<script>
+							document.body.style.background = "url('{%static 'images/sad.jpg'%}')";
+							console.log("HEHE");
+						</script>
+						{%endif%}
+
+						
+							
+                        
+                        
+                    
+				
+
+	
 
 
-{% if code == 0 %}
-  <a href="{% url 'game:question' %}">Click Here</a>
-{% else %}
-  <a href="{% url 'game:code' %}">Click Here</a>
-{% endif %}
+
+
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{% static 'assets/js/browser.min.js' %}"></script>
+		<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'assets/js/util.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>

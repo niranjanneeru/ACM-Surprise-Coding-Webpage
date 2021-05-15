@@ -323,5 +323,5 @@ tags
 ascendo/media/
 
 .pytest_cache/
-
+.env
 

@@ -120,7 +120,7 @@ class CodeView(View):
                 form.user = request.user.profile
                 form.create_date = now()
                 form.save()
-                return render(request, 'game/coderesult.html', context)
+                return render(request, 'game/result.html', context)
 
 
 code_view = CodeView.as_view()

@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-
+from django.db.models import Q
 
 class Profile(models.Model):
     name = models.CharField(max_length=100)

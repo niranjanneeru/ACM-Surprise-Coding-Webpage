@@ -1,10 +1,79 @@
-{{ code.question }}
-{{ code.image }}
+{% load static %}
+<!DOCTYPE HTML>
 
-<form method="post" class="profile_form">
-            {% csrf_token %}
-			{{ form }}
-			<div style="text-align:center; margin:20px">
-				<button type="submit">Submit</button>
-		</div>
-          </form>
+<html>
+<head>
+  <title>Question</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
+  <script src="https://cdn.ckeditor.com/4.16.0/basic/ckeditor.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"/>
+  </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+
+  <!-- Header -->
+  <header id="header">
+    <a href="{% url 'home' %}" class="logo">ACM</a>
+  </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li class="active"><a href="#">Arena</a></li>
+      <li><a href="{% url 'user_profile:lead' %}">Leader board</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- Main -->
+  <div id="main">
+
+    <!-- Post -->
+    <section class="post">
+      <header class="major">
+
+        <h1>{{ code.question }}</h1>
+
+      </header>
+      <div class="image main"><img src="{{ code.image }}" alt=""/></div>
+      <!-- IF it's a question -->
+      <form class="form-wrap frm" action="" method="POST">
+        {% csrf_token %}
+        {{ form }}   
+        <button type="submit" class="button large additional">Submit</button>
+      </form>
+     
+                <script>
+                        CKEDITOR.replace( 'editor1' );
+                      
+                        document.getElementById('id_answer').className = "editor";
+                        
+                </script>
+    </section>
+
+
+  </div>
+
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'assets/js/browser.min.js' %}"></script>
+<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
