@@ -13,6 +13,12 @@
 
 		<!-- Wrapper -->
 			<div id="one" class="fade-in">
+				{%if request.user.is_authenticated%}
+				<div class="signout" >
+				  <img class="avatar" onclick="show_side_bar(this)" src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" alt="Not Found" onerror=this.src="{%static 'images/L.jpeg'%}">
+			  
+				  
+				</div>
 				<ul class="circles">
                     <li></li>
                     <li></li>
@@ -35,7 +41,6 @@
                         <a href="{%url 'game:question'%}" class="button icon solid  fas fa-play scrolly">next</a>
 						<script>
 							document.body.style.background = "url('{%static 'images/happy.jpg'%}')";
-							
 						</script>
                         {%else %}
 						<h1 style="color: red;">OPPS!!</h1>

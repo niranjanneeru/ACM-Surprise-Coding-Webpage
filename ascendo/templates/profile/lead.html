@@ -15,7 +15,7 @@
 
   {%if request.user.is_authenticated%}
   <div class="signout" >
-    <img class="avatar" src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" alt="Not Found" onerror=this.src="{%static 'images/L.jpeg'%}">
+    <img class="avatar" onclick="show_side_bar(this)" src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" alt="Not Found" onerror=this.src="{%static 'images/L.jpeg'%}">
 
     
   </div>
