@@ -1,0 +1,8 @@
+{{ message }}
+
+
+{% if code == 0 %}
+  <a href="{% url 'game:question' %}">Click Here</a>
+{% else %}
+  <a href="{% url 'game:code' %}">Click Here</a>
+{% endif %}

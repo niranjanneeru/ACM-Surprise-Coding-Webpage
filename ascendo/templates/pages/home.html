@@ -1,0 +1,13 @@
+{#{% extends "base.html" %}#}
+{% load socialaccount %}
+<nav id="nav">
+  <ul class="links">
+    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+    {% if request.user.is_authenticated %}
+      <li><a href="{% url 'user_profile:redirect' %}">Let's start</a></li>
+    {% else %}
+      <li><a href="{% provider_login_url 'google' %}">Let's start</a></li>
+    {% endif %}
+    <li><a href="{% url 'user_profile:lead' %}">Leader board</a></li>
+  </ul>
+</nav>
