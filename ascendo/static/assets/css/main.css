@@ -5083,7 +5083,11 @@ label {
   background-color: black !important;
   color: green !important;
   padding: 10px !important;
+  font-size: 18px;
   text-align: left !important;
   font-family: 'VT323', monospace;
+  line-height:20px;
+  caret-color: DeepPink;
+
   
 }

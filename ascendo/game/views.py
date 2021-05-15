@@ -96,6 +96,8 @@ class CodeView(View):
             if form.is_valid():
                 form = form.save(commit=False)
                 answer = form.answer
+                answer = "\n".join([a.strip() for a in answer.split("\n") if not a.strip().startswith("//")])
+                print(answer)
                 out, code = evaluate(answer)
                 context = {'code': 0}
                 if code == -1:
